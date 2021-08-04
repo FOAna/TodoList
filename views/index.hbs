@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodorka</title>
+    <link rel="stylesheet" href="{{ static }}/styles/index.css">
+    <link rel="stylesheet" href="{{ static }}/styles/todoList.css">
+    <link rel="stylesheet" href="{{ static }}/styles/timer.css">
+    <link rel="stylesheet" href="{{ static }}/styles/sizes.css">
+    <link rel="stylesheet" href="{{ static }}/styles/media.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="{{ static }}/images/tomatoFavi.svg" type="image/svg">
+    <script defer src="{{ static }}/scripts/todoList.js"></script>
+    <script defer src="{{ static }}/scripts/timer.js"></script>
+    <script>
+        var csrftoken = '{{ csrf_token }}';
+        var DJANGO_STATIC_URL = '{{ STATIC_URL }}';
+    </script>
+</head>
+
+<body class="mainContent">
+    <img class="mainContent__background" src="{{ static }}/images/darkRick2.jpg" alt="Тёмная тема">
+    <header class="header">
+        <img class="header__logo" src="{{ static }}/images/pomologo.png" alt="Помодорка">
+        <h1 class="header__name xxl">Томатный список дел</h1>
+        <div class="header__userInfo">
+            <img class="header__userIcon" src="{{ static }}/images/tomatoCute.svg" alt="Ты помидорка!">
+        </div>
+    </header>
+    <main class="main">
+        <figure class="main__quote">
+            <blockquote id="quote" class="main__blockquote"></blockquote>
+            <figcaption id="author" class="main__figcaption"></figcaption>
+            <script type="0e5c31cd81c340e3690deb1a-text/javascript">
+                function parseQuote(response)
+                {
+                    document.getElementById("quote").innerHTML = response.quoteText;
+                    document.getElementById("author").innerHTML = response.quoteAuthor;
+                }
+            </script>
+            <script type="0e5c31cd81c340e3690deb1a-text/javascript"
+                src="https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&jsonp=parseQuote"></script>
+            <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js"
+                data-cf-settings="0e5c31cd81c340e3690deb1a-|49" defer=""></script>
+        </figure>
+        <div class="main__pomodoro">
+            <div class="main__todo">
+                <div class="main__todoHeading">
+                    <img id="addNewTask" class="main__todoAdd" src="{{ static }}/images/plus.svg" alt="Плюсик">
+                    <h2 class="main__todoHeadingName">Задачи</h2>
+                    <img id="removeAll" class="main__todoRemove" src="{{ static }}/images/delete.png" alt="Удаляшка">
+                </div>
+                <div class="main__todoListContainer">
+                    <ul id="todoList" class="main__todoList"></ul>
+                </div>
+            </div>
+            <div class="main__timer timer">
+                <span id="currentStage" class="timer__intervalName">Запустите таймер :3</span>
+                <img id="settings" class="timer__settImg" src="{{ static }}/images/settings.svg" alt="Настройки">
+                <div class="timer__items">
+                    <img class="timer__tomato" src="{{ static }}/images/tomaTimer.svg" alt="Помидорковый таймер">
+                    <div class="timer__numBackground">
+                        <div class="timer__minBackground">
+                            <span id="minutes" class="timer__min">00</span>
+                        </div>
+                        :
+                        <div class="timer__secBackground">
+                            <span id="seconds" class="timer__sec">00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timer__buttons">
+                    <img id="start" class="timer__start" src="{{ static }}/images/play.png" alt="Начинаем отсчёт!">
+                    <img id="pause" class="timer__pause" src="{{ static }}/images/pause.png"
+                        alt="Приостанови свои страдания!">
+                    <img id="stop" class="timer__stop" src="{{ static }}/images/stop.png" alt="Твоё время вышло!">
+                </div>
+                <div class="timer__settings">
+                    <ul class="timer__settingsList">
+                        <li class="timer__settingsListItem">
+                            <label class="timer__settingsLabel" for="workTime">Рабочее время</label>
+                            <input class="timer__settingsInput" id="workTime" type="number" value="25">
+                        </li>
+                        <li class="timer__settingsListItem">
+                            <label class="timer__settingsLabel" for="breakTime">Перерыв</label>
+                            <input class="timer__settingsInput" id="breakTime" type="number" value="5">
+                        </li>
+                        <li class="timer__settingsListItem">
+                            <label class="timer__settingsLabel" for="restTime">Время отдыха</label>
+                            <input class="timer__settingsInput" id="restTime" type="number" value="15">
+                        </li>
+                        <li class="timer__settingsListItem">
+                            <label class="timer__settingsLabel" for="roundCount">Количество раундов</label>
+                            <input class="timer__settingsInput" id="roundCount" type="number" value="1">
+                        </li>
+                        <li class="timer__settingsListItem">
+                            <label class="timer__settingsLabel" for="repeatCount">Количество кругов</label>
+                            <input class="timer__settingsInput" id="repeatCount" type="number" value="1">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <input type="hidden" id="urlPencil" value="{{ static }}/images/pencil.png">
+    <input type="hidden" id="urlClose" value="{{ static }}/images/close.png">
+</body>
+
+</html>

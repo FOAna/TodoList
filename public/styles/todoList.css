@@ -1,0 +1,87 @@
+.main__timerHeading {
+  font-size: 64px;
+  margin: 18px 0;
+}
+
+.main__todoList {
+  text-align: left;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checkbox {
+  background-color: lavender;
+  padding: 16px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkbox__input {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.main__todoListContainer {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.main__todoListContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.checkbox__editor,
+.checkbox__remove {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  opacity: 50%;
+}
+
+.checkbox__editor:hover,
+.checkbox__remove:hover {
+  opacity: 100%;
+}
+
+.checkbox__container {
+  display: flex;
+  align-items: center;
+}
+
+.main__todoAdd,
+.main__todoRemove {
+  width: 20px;
+  height: 20px;
+  opacity: 50%;
+}
+
+.main__todoAdd:hover,
+.main__todoRemove:hover {
+  opacity: 100%;
+}
+
+.main__todoHeadingName {
+  margin: 0;
+}
+
+.main__todoHeading {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.checkbox__save {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  opacity: 50%;
+}
+
+.checkbox__save:hover {
+  opacity: 100%;
+}
